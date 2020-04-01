@@ -3,15 +3,9 @@ s = 20;
 c = 1/3;
 weights = 1./(1:s).^2;
 %weights = ones(1,s);
-integrand = @conti3_nonper;
+integrand = @Sobolev_c;
 
-%integrand = Sobolev_c(s,weights,3);
-%integrand = expsum(s,weights,0);
-%integrand = Discontinuous(s,weights,1/3);
-%integrand = Bernoulli2(s,weights,0);
-%integrand = cossum(s,weights,0);
-%integrand = G_function(s,weights,0);
-%integrand = prodroot(s,weights,0);
+%integrand: Sobolev_c, expsum, Discontinuous, Bernoulli2, cossum, G_function, prodroot
 
 Sob_err = Errors(integrand,s,weights,c,"Sobol",mmax); 
 HoS_err = Errors(integrand,s,weights,c,"HOSobol",mmax); 
