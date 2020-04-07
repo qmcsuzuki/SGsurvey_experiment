@@ -10,6 +10,12 @@ switch type
             N = pow2(m); % Number of points
             err(m) = abs(integrand(net(P,N)));
         end
+    case "Sobol+shift"
+        P = sobolset(s);
+        for m = 1:mmax
+            N = pow2(m); % Number of points
+            err(m) = abs(integrand(net(P,N)+pow2(-m-1)));
+        end
     case "ScrambledSobol"
         P = sobolset(s);
         P = scramble(P,'MatousekAffineOwen');
@@ -25,6 +31,11 @@ switch type
         for m = 1:mmax
             err(m) = abs(integrand(LatticePoints(m,s)));
         end
+    case "Lattice+shift"
+        for m = 1:mmax
+            shift = rand(1,s);
+            err(m) = abs(integrand(mod(LatticePoints(m,s)+shift,1)));
+        end
     case "Random"
         for m = 1:mmax
             N = pow2(m); % Number of points
@@ -36,6 +47,12 @@ switch type
             N = pow2(m); % Number of points
             err(m) = abs(integrand(net(P,N)));
         end
+    case "LeapedHalton"
+        P = haltonset(s,'leap',408);
+        for m = 1:mmax
+            N = pow2(m); % Number of points
+            err(m) = abs(integrand(net(P,N)));
+        end
     case "ScrambledHalton"
         P = haltonset(s);
         P = scramble(P,'RR2');
@@ -43,4 +60,5 @@ switch type
             N = pow2(m); % Number of points
             err(m) = abs(integrand(net(P,N)));
         end
+    end
 end
