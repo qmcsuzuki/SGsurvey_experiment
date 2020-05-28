@@ -22,6 +22,7 @@
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
   - LatticePoints_diag.m: 上コード群のラッパー関数。2^m に近い素数点からなる悪い格子を返す
     - といっても、パラメータを gamma = ones(s_max, 1)/s_max から ones(s_max, 1) にしただけ
+- 対応している点列は、Errors.m および RQMCErrors.m 上部に記載
 
 ## 指定可能な被積分関数(integrands フォルダに存在):
 以下、g_i は weight（i 番目の座標の重要度）を表す
