@@ -12,7 +12,7 @@
 
 #被積分関数:
 - 以下、g_i は weight（i 番目の座標の重要度）を表す
-- expsum: f(x) exp(sum(g_j x_j))
+- expsum: f(x) = exp(sum(g_j x_j))
 - cossum: f(x) = cos(2pi+sum(g_j x_j))
 - prodroot: f(x) = (1+1/s)^s*\prod(x_i^{1/s})-1
 - half_of_cube: f(x) =  1/2 if sum(x) < s/2 else -1/2
