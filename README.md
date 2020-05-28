@@ -30,6 +30,7 @@
 - cossum: f(x) = cos(2pi+sum(g_j x_j))
 - prodroot: f(x) = (1+1/s)^s*\prod(x_i^{1/s})-1
 - half_of_cube: f(x) =  1/2 if sum(x) < s/2 else -1/2
+
 以下では、被積分関数の形は f(x) = \prod(1 + g_i h(x_i)) -1 
 - Sobolev_c: h(x,c) = x^{c} - 1/(1+c)
 - Discontinuous: h(x,c) = 1-c if x_j < c else -c
