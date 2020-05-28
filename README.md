@@ -10,7 +10,7 @@
 - experiment_random.m: 乱択化QMCの分散をプロットするメインスクリプト
   - RQMCErrors.m: 被積分関数とQMC点集合の種類を指定して、乱択化QMCの分散の配列を返す関数
 - experiment_higher.m: Section 6.3 の実験（高次の収束を確認する）に特化したスクリプト
-
+- other_experiments フォルダに、Sobol列、Halton列、格子の各種バリアントに特化したスクリプトがあります。
 
 ## QMC点集合:
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数を使用。
