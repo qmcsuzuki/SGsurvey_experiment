@@ -1,7 +1,8 @@
 # SGsurvey_experiment
+本ページは、サーベイ論文「準モンテカルロ積分の最前線」（鈴木航介・合田隆）のサンプルコードを掲載しているページです。
 
 
-#QMC点集合:
+## QMC点集合:
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数を使用。
 - Halton列: 同上
 - 2-order Sobol列: Josef Dick先生のブログのコード（リンクは以下）を使用（このリポジトリには含まれていない）
@@ -10,7 +11,12 @@
   - https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
 
-#被積分関数:
+## サンプルスクリプト
+- experiment.m: 被積分関数とパラメータを指定することで上記各種点集合によるQMC積分誤差をプロットするメイン関数
+  - Errors.m: 被積分関数とQMC点集合の種類を指定してQMC積分誤差の配列を返す関数
+
+
+## 指定可能な被積分関数(integrands フォルダに存在):
 - 以下、g_i は weight（i 番目の座標の重要度）を表す
 - expsum: f(x) = exp(sum(g_j x_j))
 - cossum: f(x) = cos(2pi+sum(g_j x_j))
@@ -27,9 +33,6 @@
 - absconti3: h(x) = (1+3(x-|1-3x|))/2
 - conti3_nonper: h(x) = (|1-3x|-3x+4)/5 
 
-実験をするための関数
-- experiment.m: 被積分関数とパラメータを指定することで上記各種点集合によるQMC積分誤差をプロットするメイン関数
-  - Errors.m: 被積分関数とQMC点集合の種類を指定してQMC積分誤差の配列を返す関数
 
 
 
