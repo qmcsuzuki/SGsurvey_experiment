@@ -2,6 +2,14 @@
 本ページは、サーベイ論文「準モンテカルロ積分の最前線」（鈴木航介・合田隆）のサンプルコードを掲載しているページです。
 
 
+## サンプルスクリプト
+- experiment.m: 各種QMC点集合によるQMC積分誤差をプロットするメインスクリプト
+  - Errors.m: 被積分関数とQMC点集合の種類を指定して、QMC積分誤差の配列を返す関数
+- experiment_random.m: 乱択化QMCの分散をプロットするメインスクリプト
+  - RQMCErrors.m: 被積分関数とQMC点集合の種類を指定して、乱択化QMCの分散の配列を返す関数
+- experiment_higher.m: Section 6.3 の実験（高次の収束を確認する）に特化したスクリプト
+
+
 ## QMC点集合:
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数を使用。
 - Halton列: 同上
@@ -10,10 +18,6 @@
 - 格子: Dirk Nuyence 先生のコード（リンクは以下）を使用（このリポジトリには含まれていない）
   - https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
-
-## サンプルスクリプト
-- experiment.m: 被積分関数とパラメータを指定することで上記各種点集合によるQMC積分誤差をプロットするメイン関数
-  - Errors.m: 被積分関数とQMC点集合の種類を指定してQMC積分誤差の配列を返す関数
 
 
 ## 指定可能な被積分関数(integrands フォルダに存在):
