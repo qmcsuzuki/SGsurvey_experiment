@@ -1,3 +1,16 @@
+%{
+点サイズを動かしたときのRQMC(もしくはMC)の分散の配列を返す関数
+integ: 被積分関数
+s: 次元
+weights: 重みベクトル
+c: 被積分関数のパラメータ
+mmax: log2(点サイズの最大値)
+R: 試行回数
+type: 積分をする点集合の種類：使えるものは以下の通り
+    "ScrambledSobol": Sobole列 + ランダムスクランブル
+    "Lattice+shift": 格子 + ランダムシフト
+    "Random": ランダム点集合（R*2^i 点を1回ではなく、2^i 点をR回）
+%}
 function MSerr = RQMCErrors(integ,s,weights,c,type,mmax,R)
 
 integrand = integ(s,weights,c);
