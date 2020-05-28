@@ -18,7 +18,7 @@
 - 格子: Dirk Nuyence 先生のコード（リンクは以下）を使用（このリポジトリには含まれていない）
   - https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
-  - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる悪い格子を返す
+  - LatticePoints_diag.m: 上コード群のラッパー関数。2^m に近い素数点からなる悪い格子を返す
     - といっても、パラメータを gamma = ones(s_max, 1)/s_max から ones(s_max, 1) にしただけ
 
 ## 指定可能な被積分関数(integrands フォルダに存在):
