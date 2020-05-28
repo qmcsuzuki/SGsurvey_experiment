@@ -13,19 +13,19 @@
 - other_experiments フォルダに、Sobol列、Halton列、格子の各種バリアントに特化したスクリプトがあります。
 
 ## QMC点集合:
+- 対応している点列は、Errors.m および RQMCErrors.m 上部に記載
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数を使用。
 - Halton列: 同上
 - 2-order Sobol列: Josef Dick先生のブログのコード（リンクは以下）を使用（このリポジトリには含まれていない）
   - https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/
 - 格子: Dirk Nuyence 先生のコード（リンクは以下）を使用（このリポジトリには含まれていない）
   - https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/
-    - fastrank1pt.m, generatorp.m, powmod.m を使用
+    - 格子が必要なときに使う。fastrank1pt.m, generatorp.m, powmod.m を使用
   - https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/    
-    - latticeseq_b2.m, bitreverse32.m を使用
+    - 格子列が必要なときに使う。latticeseq_b2.m, bitreverse32.m を使用
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
   - LatticePoints_diag.m: 上コード群のラッパー関数。2^m に近い素数点からなる悪い格子を返す
     - といっても、パラメータを gamma = ones(s_max, 1)/s_max から ones(s_max, 1) にしただけ
-- 対応している点列は、Errors.m および RQMCErrors.m 上部に記載
 
 ## 指定可能な被積分関数(integrands フォルダに存在):
 以下、g_i は weight（i 番目の座標の重要度）を表す
