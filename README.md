@@ -19,6 +19,9 @@
   - https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/
 - 格子: Dirk Nuyence 先生のコード（リンクは以下）を使用（このリポジトリには含まれていない）
   - https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/
+    - fastrank1pt.m, generatorp.m, powmod.m を使用
+  - https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/    
+    - latticeseq_b2.m, bitreverse32.m を使用
   - LatticePoints.m: 上コード群のラッパー関数。2^m に近い素数点からなる格子を返す
   - LatticePoints_diag.m: 上コード群のラッパー関数。2^m に近い素数点からなる悪い格子を返す
     - といっても、パラメータを gamma = ones(s_max, 1)/s_max から ones(s_max, 1) にしただけ
