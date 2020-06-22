@@ -7,7 +7,7 @@ c: 被積分関数のパラメータ
 mmax: log2(点サイズの最大値)
 R: 試行回数
 type: 積分をする点集合の種類：使えるものは以下の通り
-    "ScrambledSobol": Sobole列 + ランダムスクランブル
+    "ScrambledSobol": Sobol列 + ランダムスクランブル
     "Lattice+shift": 格子 + ランダムシフト
     "Random": ランダム点集合（R*2^i 点を1回ではなく、2^i 点をR回）
 %}
