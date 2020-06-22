@@ -61,9 +61,9 @@ g_i は weight（i 番目の座標の重要度）を表す
 	- "Random": 組み込み関数 rand を使用
 
 ### RQMCErrors 関数（experiment_random.m）で利用可能なQMC点集合（詳細はErrorsで利用可能なQMC点集合と同様）:
-- "Sobol+shift": non-digital なシフトをするSobol列
-- "Lattice+shift":（要インストール）
-- "Random": 組み込み関数 rand を使用
+- "ScrambledSobol": Sobol列 + ランダムスクランブル
+- "Lattice+shift": "Lattice"で得られるよい格子 + ランダムシフト（要インストール）
+- "Random": 組み込み関数 rand を使用した一様ランダム点集合
 
 ## 導入方法
 - このリポジトリをcloneしてください。
