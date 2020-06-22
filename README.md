@@ -65,7 +65,7 @@ g_i は weight（i 番目の座標の重要度）を表す
 - "Lattice+shift":（要インストール）
 - "Random": 組み込み関数 rand を使用
 
-##導入方法
+## 導入方法
 - このリポジトリをcloneしてください。
 - 非組込み関数を利用するために，以下の手順でソースコードをダウンロードし，サンプルコードと同じフォルダにコピーしてください（利用しない場合はこの手順は不要ですが，ダウンロードした時点でのサンプルソースの時点では利用しています）:
 	- Dick先生のblog（ https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/ ）にある *Matlab function for generating higher order Sobol points* に書かれているMATLABのソースコードをコピーし，サンプルコードと同じフォルダに「HOSobol.m」という名前で保存してください。
