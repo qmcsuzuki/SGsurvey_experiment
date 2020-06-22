@@ -9,7 +9,7 @@
 	- experiment.m: 各種QMC点集合によるQMC積分誤差をプロットするスクリプト
 	- experiment_random.m: 乱択化QMCの分散をプロットするスクリプト
 	- experiment_higher.m: Section 6.3 の実験（高次の収束を確認する）に特化したスクリプト
-	- other_experiments: Sobol列、Halton列、格子の各種バリアントに特化したスクリプト群
+	- other_experiments: Sobol'列、Halton列、格子の各種バリアントに特化したスクリプト群
 		- experiment_Sobol.m: Sobol列に特化したスクリプト
 		- experiment_Halton.m: Halton列に特化したスクリプト
 		- experiment_lattice.m: lattice列に特化したスクリプト
@@ -42,12 +42,12 @@ g_i は weight（i 番目の座標の重要度）を表す
 
 
 ### Errors 関数（experiment.m・experiment_higher.m）で利用可能なQMC点集合:
-対応している点列は、Errors.m および RQMCErrors.m 上部にも記載している。組み込み関数以外を使用している部分についてはリポジトリに含まれていないため，使用する場合は別途導入する必要がある。
+対応している点列は、Errors.m および RQMCErrors.m 上部にも記載している。組み込み関数以外を使用している部分についてはリポジトリに含まれていないため、使用する場合は別途導入する必要がある。
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数 sobolset(s) を使用。
 	- "Sobol" 
-	- "Sobol+shift": non-digital なシフトをするSobol列
-	- "ScrambledSobol"
-	- "HOSobol": [Josef Dick先生の実装](https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/)による2-order Sobol列を返す関数 HOSobol 使用する（要インストール）
+	- "Sobol+shift": 2^m点のSobol'点集合を各方向に2^{-m-1}だけシフトしたもの
+	- "ScrambledSobol": ランダムな Scrambled Sobol' 列（1系列のみ）
+	- "HOSobol": [Josef Dick先生の実装](https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/)による2階のSobol'列を返す関数 HOSobol を使用する（要インストール）
 - Halton列: Statistics and Machine Learning Toolboxの組み込み関数 haltonset(s) を使用
 	- "Halton"
 	- "LeapedHalton"
@@ -55,7 +55,7 @@ g_i は weight（i 番目の座標の重要度）を表す
 - 格子: Dirk Nuyens先生の実装を使用する（要インストール）。
 	- "Lattice": [Dirk Nuyens先生の実装](https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/)を利用した2^m に近い素数点からなる（よい）格子を使用する。
 	- "badLattice": [Dirk Nuyens先生の実装](https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/)を利用した2^m に近い素数点からなる（わるい）格子を使用する。
-	- "Lattice+shift":（要インストール）
+	- "Lattice+shift": "Lattice"で得られるよい格子にランダムなシフト（1系列のみ）を施したもの
 	- "Lattice_seq": [Dirk Nuyens先生の実装](https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/)による格子列を返す関数 latticeseq_b2 を使用。
 - 一様ランダム:
 	- "Random": 組み込み関数 rand を使用
@@ -67,19 +67,19 @@ g_i は weight（i 番目の座標の重要度）を表す
 
 ## 導入方法
 - このリポジトリをcloneしてください。
-- 非組込み関数を利用するために，以下の手順でソースコードをダウンロードし，サンプルコードと同じフォルダにコピーしてください（利用しない場合はこの手順は不要ですが，ダウンロードした時点でのサンプルソースの時点では利用しています）:
-	- Dick先生のblog（ https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/ ）にある *Matlab function for generating higher order Sobol points* に書かれているMATLABのソースコードをコピーし，サンプルコードと同じフォルダに「HOSobol.m」という名前で保存してください。
-		- 補足: 2020/06_22現在，このソースコードは21行目にミス（「-」が「–」になっている）があるので，MATLABの指示に従って修正してください。以下に修正した正しいソースコードも提示します
+- 非組込み関数を利用するために、以下の手順でソースコードをダウンロードし、サンプルコードと同じフォルダにコピーしてください（利用しない場合はこの手順は不要ですが、サンプルコードは以下のコードを利用しています）:
+	- Dick先生のblog（ https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/ ）にある *Matlab function for generating higher order Sobol points* に書かれているMATLABのソースコードをコピーし、サンプルコードと同じフォルダに「HOSobol.m」という名前で保存してください。
+		- 補足: 2020/06_22現在、このソースコードは21行目にミス（「-」が「–」になっている）があるので、MATLABの指示に従って修正してください。以下に修正した正しいソースコードも提示します
 		```
 		Y(j,:) = bitset( Y(j,:),(m*d+1) - k - (i-1)*d,bitget( Z((j-1)*d+k,:),(m+1) - i));
 		```
-	- Dirk Nuyens先生のwebページ（ https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/ ）から，以下のファイルをダウンロードしてサンプルコードと同じフォルダにコピーしてください。
+	- Dirk Nuyens先生のwebページ（ https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/ ）から、以下のファイルをダウンロードしてサンプルコードと同じフォルダにコピーしてください。
 		- fastrank1pt.m
 		- generatorp.m
 		- powmod.m
-	- Dirk Nuyence先生のwebページ（ https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/ ）から，以下のファイルをダウンロードしてサンプルコードと同じフォルダにコピーしてください。
-		- latticeseq_b2.m,
+	- Dirk Nuyence先生のwebページ（ https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/ ）から、以下のファイルをダウンロードしてサンプルコードと同じフォルダにコピーしてください。
+		- latticeseq_b2.m
 		- bitreverse32.m
-- 導入ができたことを確認するために，「experiment.m」を開いて実行した際に，以下の画像のような感じで出力されれば成功です。
+- 導入ができたことを確認するために、「experiment.m」を開いて実行した際に、以下の画像のような感じで出力されれば成功です。
 ![experimt.mの実行例](./experiment_sample.png)
 
