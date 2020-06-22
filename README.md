@@ -44,14 +44,14 @@ g_i は weight（i 番目の座標の重要度）を表す
 ### Errors 関数（experiment.m・experiment_higher.m）で利用可能なQMC点集合:
 対応している点列は、Errors.m および RQMCErrors.m 上部にも記載している。組み込み関数以外を使用している部分についてはリポジトリに含まれていないため、使用する場合は別途導入する必要がある。
 - Sobol'列: Statistics and Machine Learning Toolboxの組み込み関数 sobolset(s) を使用。
-	- "Sobol" 
+	- "Sobol": Sobol'列
 	- "Sobol+shift": 2^m点のSobol'点集合を各方向に2^{-m-1}だけシフトしたもの
 	- "ScrambledSobol": ランダムな Scrambled Sobol' 列（1系列のみ）
 	- "HOSobol": [Josef Dick先生の実装](https://quasirandomideas.wordpress.com/2010/06/17/how-to-generate-higher-order-sobol-points-in-matlab-and-some-numerical-examples/)による2階のSobol'列を返す関数 HOSobol を使用する（要インストール）
 - Halton列: Statistics and Machine Learning Toolboxの組み込み関数 haltonset(s) を使用
-	- "Halton"
-	- "LeapedHalton"
-	- "ScrambledHalton"
+	- "Halton": Halton列
+	- "LeapedHalton": Halton列（409点ごと）
+	- "ScrambledHalton": スクランブルしたHalton列（deterministicであることに注意）
 - 格子: Dirk Nuyens先生の実装を使用する（要インストール）。
 	- "Lattice": [Dirk Nuyens先生の実装](https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/)を利用した2^m に近い素数点からなる（よい）格子を使用する。
 	- "badLattice": [Dirk Nuyens先生の実装](https://people.cs.kuleuven.be/~dirk.nuyens/fast-cbc/)を利用した2^m に近い素数点からなる（わるい）格子を使用する。
