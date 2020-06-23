@@ -3,6 +3,7 @@ Section 6.3 の実験スクリプト
 Sobol列、order 2 Sobol列、格子 によるQMC積分の誤差を比較する。
 %}
 
+addpath('./integrands')
 %以下はパラメータ（手で変更する）
 mmax = 20;
 s = 4;
