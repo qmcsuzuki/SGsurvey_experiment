@@ -80,6 +80,6 @@ g_i は weight（i 番目の座標の重要度）を表す
 	- Dirk Nuyence先生のwebページ（ https://people.cs.kuleuven.be/~dirk.nuyens/qmc-generators/ ）から、以下のファイルをダウンロードしてサンプルコードと同じフォルダにコピーしてください。
 		- latticeseq_b2.m
 		- bitreverse32.m
-- 導入ができたことを確認するために、「experiment.m」を開いて実行した際に、以下の画像のような感じで出力されれば成功です。
+- 導入ができたことを確認するために、「experiment.m」を開いて実行した際に、以下の画像のような感じで出力されれば成功です。（MCの線（紫色）は、毎回ランダムな系列をとっているので毎回結果が変わります）
 ![experimt.mの実行例](./experiment_sample.png)
 
