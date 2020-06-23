@@ -23,3 +23,15 @@ LatShift_err = Errors(integrand,s,weights,c,"Lattice+shift",mmax);
 Latseq_err = Errors(integrand,s,weights,c,"Lattice_seq",mmax); 
 
 
+% グラフを作成
+III = (1:mmax);
+f1 = figure;
+hold on
+plot(III, log2(Lat_err))
+plot(III, log2(Bad_err))
+plot(III, log2(LatShift_err))
+plot(III, log2(Latseq_err))
+plot(III, -III)
+legend('lattice','bad lattice','lattice+shift','lattice sequence','1/N')
+xlabel('log2(number of points)')
+ylabel('log2(Error)')
