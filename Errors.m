@@ -8,7 +8,7 @@ mmax: log2(点サイズの最大値)
 type: 積分をする点集合の種類：使えるものは以下の通り
 Sobol列系統:
     "Sobol" 
-    "Sobol+shift" % non-digital なシフトをするSobol列
+    "Sobol+shift" % 2^m点のSobol点集合を各方向に2^{-m-1}だけシフトしたもの
     "ScrambledSobol"
     "HOSobol" % order2のSobol列
 格子系統:
