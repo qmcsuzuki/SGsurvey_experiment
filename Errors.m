@@ -7,19 +7,19 @@ c: 被積分関数のパラメータ
 mmax: log2(点サイズの最大値)
 type: 積分をする点集合の種類：使えるものは以下の通り
 Sobol列系統:
-    "Sobol" 
+    "Sobol" %Sobol列
     "Sobol+shift" % 2^m点のSobol点集合を各方向に2^{-m-1}だけシフトしたもの
-    "ScrambledSobol"
+    "ScrambledSobol" %ランダムな Scrambled Sobol列（1系列のみ）
     "HOSobol" % order2のSobol列
 格子系統:
     "Lattice" %（よい）格子
     "badLattice" % 生成ベクトルに同じ元がたくさん出てきてしまう格子
-    "Lattice+shift"
+    "Lattice+shift" %"Lattice"で得られるよい格子にランダムなシフト（1系列のみ）を施したもの
     "Lattice_seq" %格子列
 Halton列系統:
-    "Halton"
-    "LeapedHalton"
-    "ScrambledHalton"
+    "Halton" %  Halton列
+    "LeapedHalton" %  Halton列（409点ごと）
+    "ScrambledHalton" % スクランブルしたHalton列（deterministicであることに注意）
 一様ランダム
     "Random"
 %}
