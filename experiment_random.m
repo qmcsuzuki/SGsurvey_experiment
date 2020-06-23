@@ -4,6 +4,7 @@ Section 6.2 [乱択化QMCの例] が確認できる
 Scrambled Sobol, shifted lattice, Monte Carlo を比較する
 %}
 
+addpath('./integrands')
 %以下はパラメータ（手で変更する）
 R = 10; % number of repetitions
 mmax = 20;
