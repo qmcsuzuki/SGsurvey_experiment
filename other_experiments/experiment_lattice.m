@@ -7,6 +7,7 @@ badLatticeは本当に悪いのか？
 weights = 1./(1:s) で expsumを積分すると、明らかに悪い結果となる。
 %}
 
+addpath('./../integrands')
 %以下はパラメータ（手で変更する）
 mmax = 20;
 s = 20;
